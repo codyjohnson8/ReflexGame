@@ -23,7 +23,7 @@
   volatile bool Rbutton = false;
   volatile bool tapflag = false;
 
-  float soundvalue;  // MIGHT NOT NEED
+  float soundvalue; 
   float lightvalue;
   float midi[127];
   const int LEFT_BUTTON_PIN = 4;
@@ -59,12 +59,12 @@ void setup() {
   CircuitPlayground.setAccelTap(1, CLICK);
   generateMIDI();
 
-  CircuitPlayground.setAccelRange(LIS3DH_RANGE_8_G);
+  CircuitPlayground.setAccelRange(LIS3DH_RANGE_8_G); //range the tap intensity
 
   attachInterrupt(digitalPinToInterrupt(LEFT_BUTTON_PIN), lefty, FALLING);
   attachInterrupt(digitalPinToInterrupt(RIGHT_BUTTON_PIN), righty, FALLING);
 
-  delay(3000);
+  delay(3000); //upon starting game, delays 3 seconds to actually open serial monitor, then gives game intro
   Serial.println("            Welcome to reaction time game!");
   Serial.println("The serial monitor will give you an order you must complete, and");
   Serial.println("if you do not complete it before the set time runs out you fail.");
@@ -75,7 +75,7 @@ void setup() {
 
 void loop() {
 
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 10; i++) { //lil base light pattern
     CircuitPlayground.setPixelColor(i, gameco[(currentIndex + i) % 10]);
   }
   currentIndex = (currentIndex + 1) % 10;
@@ -105,7 +105,7 @@ void loop() {
   };      int failnum = random(0, 6);
   
 
-  if (score == 5) {
+  if (score == 5) { // if you get final score, you win
     mode = 6;
   }
 
