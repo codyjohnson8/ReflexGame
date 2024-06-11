@@ -82,7 +82,7 @@ void loop() {
   currentIndex = (currentIndex + 1) % 10; //rotates the color through pattern
   delay(300);
 
-  int time = map(score, 0, 22, 3000, 0);  // ranges winning score to time from 3 seconds down to 0
+  int time = map(score, 0, 32, 3000, 0);  // ranges winning score to time from 3 seconds down to 0
 
 
 
@@ -106,7 +106,7 @@ void loop() {
   };      int failnum = random(0, 6);
   
 
-  if (score == 20) { // if you get final score, you win
+  if (score == 30) { // if you get final score, you win
     mode = 6;
   }
 
@@ -222,14 +222,14 @@ void loop() {
       delay(500);
       score == 0;
       //Play Pokemon Heal Sound
-      CircuitPlayground.playTone(midi[71], 300); //59
-      CircuitPlayground.playTone(midi[71], 300);
-      CircuitPlayground.playTone(midi[71], 175);
-      CircuitPlayground.playTone(midi[68], 140); //56
-      CircuitPlayground.playTone(midi[76], 300); //64
+      CircuitPlayground.playTone(midi[71], 250); //59
+      CircuitPlayground.playTone(midi[71], 250);
+      CircuitPlayground.playTone(midi[71], 125);
+      CircuitPlayground.playTone(midi[68], 90); //56
+      CircuitPlayground.playTone(midi[76], 250); //64
       //Speaker
-      //CircuitPlayground.speaker.say(spTHIR_);
-      CircuitPlayground.speaker.say(spTWEN_);
+      CircuitPlayground.speaker.say(spTHIR_); // depending on twenty or thirty points I switch this
+      //CircuitPlayground.speaker.say(spTWEN_);
       CircuitPlayground.speaker.say(spT);
       CircuitPlayground.speaker.say(spPOINT);
       CircuitPlayground.speaker.say(spS);
@@ -239,7 +239,7 @@ void loop() {
 
       Serial.println("Congratulations you Win!");
       Serial.println("Click the middle button to restart.");
-      delay (10000);
+      delay (50000);
       mode = 0;
       break;
     default:
